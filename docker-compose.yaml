@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  # Servicio de la App
+  app:
+    container_name: app-shortcut
+    build: .
+    entrypoint: ./start.sh
+    volumes:
+      - .:/home/node/app
+    ports:
+      - 3800:3000
+    networks:
+      - shorcutNet
+
+networks:
+  shorcutNet:
+    driver: bridge
